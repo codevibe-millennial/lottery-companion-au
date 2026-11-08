@@ -1,17 +1,1 @@
-{
-  "name": "Lottery Companion AU",
-  "short_name": "Lottery AU",
-  "start_url": "./index.html",
-  "display": "standalone",
-  "background_color": "#f4f6fb",
-  "theme_color": "#101d50",
-  "description": "Australian lottery number selection and historical statistics companion",
-  "icons": [
-    {
-      "src": "icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
-      "purpose": "any maskable"
-    }
-  ]
-}
+{"name":"Lottery Companion AU Beta","short_name":"Lottery AU","start_url":"./index.html","display":"standalone","background_color":"#f3f5f9","theme_color":"#101a36","description":"Australian lottery companion beta with number tools and results tracking","icons":[{"src":"icon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}]}

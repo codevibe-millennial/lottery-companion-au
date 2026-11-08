@@ -1,79 +1,18 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#101d50"><meta name="description" content="Australian lottery number planner and statistics companion">
-<link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg">
-<title>Lottery Companion AU</title><link rel="stylesheet" href="styles.css">
-</head>
-<body>
-<header class="top">
-  <div class="brand"><span class="brandmark">✦</span><div><b>Lottery Companion</b><small>AU · Number planner</small></div></div>
-  <button id="installBtn" class="install hidden">Install app</button>
-</header>
-<nav class="tabs">
-  <button class="tab active" data-tab="select">Number picker</button>
-  <button class="tab" data-tab="stats">Statistics</button>
-  <button class="tab" data-tab="saved">My picks</button>
-</nav>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#101a36"><meta name="description" content="Australian lottery companion beta: number picks, results tracking and historical statistics"><link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg"><link rel="stylesheet" href="styles.css"><title>Lottery Companion AU · Beta</title></head>
+<body><div class="app-shell">
+<header class="topbar"><div><div class="eyebrow">LOTTERY COMPANION AU</div><h1>Good luck. Stay informed.</h1><p>Australian lottery tools · Beta v4</p></div><span class="beta">BETA</span></header>
 <main>
-<section id="select" class="page active">
-  <div class="hero"><div class="eyebrow">AUSTRALIAN LOTTERIES</div><h1>Choose your game</h1><p>Select a lottery, entry type and numbers. Your selections stay on this device.</p></div>
-  <label class="fieldlabel" for="game">Lottery name</label>
-  <select id="game" class="select"></select>
-  <div id="gameInfo" class="game-info"></div>
-  <label class="fieldlabel" for="entryType">Entry system</label>
-  <select id="entryType" class="select"></select>
-  <div id="entryHint" class="hint"></div>
-  <div id="pickerWrap">
-    <div class="sectionhead"><div><b id="pickTitle">Select your numbers</b><small id="pickSub">Tap to select</small></div><span id="counter" class="counter">0 / 7</span></div>
-    <div id="numberGrid" class="number-grid"></div>
-    <div class="actions"><button id="quickBtn" class="btn secondary">Quick random</button><button id="clearBtn" class="btn ghost">Clear</button></div>
-    <div id="powerWrap" class="extra hidden"><label class="fieldlabel" for="power">Powerball number</label><select id="power" class="select"></select></div>
-    <div id="super66Wrap" class="hidden"><label class="fieldlabel" for="super66">Six-digit Super 66 number</label><input id="super66" class="select digits" inputmode="numeric" maxlength="6" placeholder="000000"><small>Leading zeroes are valid. Order matters.</small><button id="random66" class="btn secondary full">Generate random six digits</button></div>
-  </div>
-  <div id="raffleWrap" class="hidden raffle"><h3>Lucky Lotteries ticket tracker</h3><p>Lucky Lotteries is raffle-style. This planner cannot choose or issue an official ticket number.</p><label class="fieldlabel" for="raffleType">Raffle</label><select id="raffleType" class="select"><option>Lucky Super Jackpot</option><option>Lucky Mega Jackpot</option></select><label class="fieldlabel" for="raffleTicket">Your ticket number (optional)</label><input id="raffleTicket" class="select" placeholder="Enter the number printed on your ticket"></div>
-  <div id="generatorPanel" class="card">
-    <h3>Advanced combination engine</h3>
-    <p>Create diversified entries with transparent filters. Filters shape the combinations; they do not improve the probability of any individual valid combination.</p>
-    <label class="fieldlabel" for="batchCount">Number of combinations</label>
-    <select id="batchCount" class="select"><option>20</option><option>5</option><option>10</option><option>50</option></select>
-    <label class="fieldlabel" for="spreadRule">Number distribution</label>
-    <select id="spreadRule" class="select">
-      <option value="balanced">Balanced odd/even and low/high</option>
-      <option value="high">At least 3 numbers above 31 (where possible)</option>
-      <option value="unrestricted">Unrestricted random</option>
-    </select>
-    <label class="fieldlabel" for="maxOverlap">Maximum shared numbers between generated entries</label>
-    <select id="maxOverlap" class="select"><option value="3">3 numbers</option><option value="4" selected>4 numbers</option><option value="5">5 numbers</option><option value="6">6 numbers</option><option value="7">7 numbers</option></select>
-    <label class="fieldlabel" for="maxConsecutive">Maximum consecutive run length</label>
-    <select id="maxConsecutive" class="select"><option value="2">2 consecutive</option><option value="3">3 consecutive</option><option value="7">No restriction</option></select>
-    <label class="checkline"><input type="checkbox" id="useHistory" checked> Use imported history for descriptive frequency display (not prediction)</label>
-    <button id="generateBatch" class="btn primary full">Generate 20 combinations</button>
-    <div id="batchOutput" class="statsout">Generated combinations will appear here.</div>
-    <button id="saveBatch" class="btn secondary full" disabled>Save generated combinations</button>
-    <button id="exportBatch" class="btn ghost full" disabled>Export generated combinations to CSV</button>
-  </div>
-  <div class="summary">
-    <div class="summarytop"><b>Selection summary</b><span id="validity" class="pill">Not complete</span></div>
-    <div id="summaryText" class="summarytext">Choose a lottery and select your numbers.</div>
-    <div id="odds" class="odds"></div>
-    <button id="saveBtn" class="btn primary full">Save selection</button>
-  </div>
-  <p class="disclaimer">For entertainment and record-keeping only. This app does not sell tickets, connect to The Lott, or predict winning numbers. Every valid combination has the same probability.</p>
+<section id="home" class="page active"><div class="welcome card"><div><span class="eyebrow">YOUR LOTTERY DASHBOARD</span><h2>Play smarter, not more.</h2><p>Organise entries, review published results and explore historical draw data.</p></div><button class="primary" data-go="pick">Create numbers <span>→</span></button></div>
+<div class="section-head"><h2>Choose a game</h2><span class="muted">Australia</span></div><div id="gameCards" class="game-grid"></div>
+<div class="section-head"><h2>Latest results</h2><button class="text-btn" data-go="results">View all →</button></div><div id="homeResults" class="stack"></div>
+<div class="quick-grid"><div class="metric card"><span>Saved entries</span><strong id="savedCount">0</strong><small>On this device</small></div><div class="metric card"><span>Results stored</span><strong id="resultCount">0</strong><small>Added by you</small></div></div>
 </section>
-<section id="stats" class="page">
-  <div class="hero"><div class="eyebrow">DATA & ANALYSIS</div><h1>Historical statistics</h1><p>Import a results CSV to calculate frequencies from your own verified draw history.</p></div>
-  <div class="card"><h3>Import draw history</h3><p>CSV format: one draw per row, with the main numbers in columns. Header row is optional. Only include the main numbers for the selected game.</p><input id="csvFile" type="file" accept=".csv,text/csv" class="file"><button id="analyseBtn" class="btn primary full">Analyse CSV</button><div id="statsOutput" class="statsout">No history imported yet. No historical counts are invented or assumed.</div></div>
-  <div class="card"><h3>How to interpret frequency</h3><p>Hot and cold counts describe past draws only. They do not make a number more or less likely in the next independent draw. Pair and triplet counts are also descriptive and can be unstable in small samples.</p><p><b>CSV guidance:</b> use one draw per row and place the drawn main numbers in the first number columns. Exclude draw dates, draw IDs, supplementary numbers and bonus fields. The app does not fetch or verify official results.</p></div>
-</section>
-<section id="saved" class="page">
-  <div class="hero"><div class="eyebrow">ON THIS DEVICE</div><h1>My saved picks</h1><p>Your saved selections are stored locally in this browser.</p></div>
-  <div id="savedList" class="savedlist"></div>
-  <button id="exportBtn" class="btn secondary full">Export picks as CSV</button>
-  <button id="deleteBtn" class="btn ghost full">Delete all saved picks</button>
-</section>
+<section id="pick" class="page"><div class="section-head"><div><span class="eyebrow">NUMBER BUILDER</span><h2>Create an entry</h2></div></div><div class="card form-card"><label for="game">Lottery game</label><select id="game"></select><p id="gameInfo" class="hint"></p><div id="entryWrap"><label for="entryType">Entry type</label><select id="entryType"></select><p id="entryHint" class="hint"></p></div><div id="pickerWrap"><div class="picker-head"><div><h3 id="pickTitle">Select numbers</h3><p id="pickSub" class="hint">Tap to select</p></div><strong id="counter">0 / 7</strong></div><div id="numberGrid" class="number-grid"></div></div><div id="powerWrap" class="hidden"><label for="power">Powerball</label><select id="power"></select></div><div id="super66Wrap" class="hidden"><label for="super66">Six-digit sequence</label><input id="super66" inputmode="numeric" maxlength="6" placeholder="000000"><button id="random66" class="secondary">Generate random sequence</button></div><div id="raffleWrap" class="hidden"><label for="raffleTicket">Your existing ticket number</label><input id="raffleTicket" placeholder="Enter ticket number"></div><div class="button-row"><button id="quickBtn" class="secondary">Quick Pick</button><button id="clearBtn" class="ghost">Clear</button></div><div class="summary"><div class="summary-top"><strong>Entry summary</strong><span id="validity" class="status">Not complete</span></div><p id="summaryText">No numbers selected</p><small id="odds" class="hint"></small><button id="saveBtn" class="primary full" disabled>Save entry</button></div></div>
+<div class="card form-card"><div class="section-head"><h3>Batch generator</h3><span class="muted">Advanced</span></div><div class="two-col"><div><label for="batchCount">Combinations</label><select id="batchCount"><option>5</option><option>10</option><option selected>20</option><option>50</option></select></div><div><label for="spreadRule">Number style</label><select id="spreadRule"><option value="any">Unrestricted random</option><option value="balanced">Balanced odd/even & low/high</option><option value="high">At least 3 numbers above 31</option></select></div><div><label for="maxOverlap">Maximum shared numbers</label><select id="maxOverlap"><option>7</option><option>6</option><option selected>4</option><option>3</option><option>2</option></select></div><div><label for="maxConsecutive">Max consecutive run</label><select id="maxConsecutive"><option>2</option><option selected>3</option><option>4</option><option>7</option></select></div></div><button id="generateBatch" class="primary full">Generate 20 combinations</button><div id="batchOutput" class="stack"></div><div class="button-row"><button id="saveBatch" class="secondary" disabled>Save batch</button><button id="exportBatch" class="ghost" disabled>Export CSV</button></div></div></section>
+<section id="stats" class="page"><div class="section-head"><div><span class="eyebrow">HISTORICAL ANALYSIS</span><h2>Draw statistics</h2></div></div><div class="card form-card"><label for="statsGame">Game to analyse</label><select id="statsGame"></select><p class="hint">Import a clean CSV of past draws. Use one draw per row and only the main winning numbers in the first columns. This analysis describes history; it cannot predict future results.</p><label class="upload">Choose historical CSV<input type="file" id="csvFile" accept=".csv,text/csv"></label><button id="analyseBtn" class="primary full">Analyse history</button><div id="statsOutput" class="stack"></div></div></section>
+<section id="saved" class="page"><div class="section-head"><div><span class="eyebrow">YOUR ENTRIES</span><h2>My picks</h2></div><button id="exportBtn" class="text-btn">Export CSV</button></div><div id="savedList" class="stack"></div><button id="deleteBtn" class="danger full">Delete all saved entries</button></section>
+<section id="results" class="page"><div class="section-head"><div><span class="eyebrow">OFFICIAL DRAW TRACKER</span><h2>Winning results</h2></div></div><div class="notice"><strong>Beta results mode</strong><p>Results are not automatically supplied by The Lott in this static GitHub Pages build. Add verified results below or import a results CSV. Never treat blank results as a draw result.</p><a href="https://www.thelott.com/results" target="_blank" rel="noopener">Open official results ↗</a></div><div class="card form-card"><h3>Add a verified result</h3><label for="resultGame">Game</label><select id="resultGame"></select><label for="drawDate">Draw date</label><input type="date" id="drawDate"><label for="resultNumbers">Winning numbers</label><input id="resultNumbers" placeholder="e.g. 4, 12, 18, 23, 31, 42"><p class="hint" id="resultHint">Enter main numbers only, separated by commas.</p><div id="resultPowerWrap" class="hidden"><label for="resultPower">Powerball</label><input id="resultPower" inputmode="numeric" placeholder="Powerball number"></div><div id="resultSupplementaryWrap"><label for="resultSupplementary">Supplementary numbers (optional)</label><input id="resultSupplementary" placeholder="e.g. 7, 35"></div><button id="addResult" class="primary full">Save result on this device</button><label class="upload">Import results CSV<input id="resultCsv" type="file" accept=".csv,text/csv"></label><div id="resultsList" class="stack"></div></div></section>
 </main>
-<footer>Lottery Companion AU <span>Independent tool · Not affiliated with The Lott</span></footer>
-<script src="app.js"></script>
-</body></html>
+<nav class="bottom-nav"><button class="tab active" data-tab="home"><span>⌂</span>Home</button><button class="tab" data-tab="pick"><span>◉</span>Pick</button><button class="tab" data-tab="stats"><span>▥</span>Stats</button><button class="tab" data-tab="saved"><span>♡</span>My Picks</button><button class="tab" data-tab="results"><span>◎</span>Results</button></nav>
+<footer>Lottery Companion AU · Beta v4.0 · Independent tracking tool, not affiliated with The Lott. Always verify game rules, draw dates and results with the official operator. Lottery outcomes are random.</footer></div><script src="app.js"></script></body></html>
