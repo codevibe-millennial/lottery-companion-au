@@ -34,19 +34,25 @@
   </div>
   <div id="raffleWrap" class="hidden raffle"><h3>Lucky Lotteries ticket tracker</h3><p>Lucky Lotteries is raffle-style. This planner cannot choose or issue an official ticket number.</p><label class="fieldlabel" for="raffleType">Raffle</label><select id="raffleType" class="select"><option>Lucky Super Jackpot</option><option>Lucky Mega Jackpot</option></select><label class="fieldlabel" for="raffleTicket">Your ticket number (optional)</label><input id="raffleTicket" class="select" placeholder="Enter the number printed on your ticket"></div>
   <div id="generatorPanel" class="card">
-    <h3>Advanced combination generator</h3>
-    <p>Generate multiple unique combinations with optional number-spread rules. These rules change the style of picks, not the chance of winning.</p>
+    <h3>Advanced combination engine</h3>
+    <p>Create diversified entries with transparent filters. Filters shape the combinations; they do not improve the probability of any individual valid combination.</p>
     <label class="fieldlabel" for="batchCount">Number of combinations</label>
-    <select id="batchCount" class="select"><option>5</option><option>10</option><option>20</option><option>50</option></select>
-    <label class="fieldlabel" for="spreadRule">Selection style</label>
+    <select id="batchCount" class="select"><option>20</option><option>5</option><option>10</option><option>50</option></select>
+    <label class="fieldlabel" for="spreadRule">Number distribution</label>
     <select id="spreadRule" class="select">
       <option value="balanced">Balanced odd/even and low/high</option>
-      <option value="high">Include more numbers above 31</option>
+      <option value="high">At least 3 numbers above 31 (where possible)</option>
       <option value="unrestricted">Unrestricted random</option>
     </select>
-    <button id="generateBatch" class="btn primary full">Generate combinations</button>
+    <label class="fieldlabel" for="maxOverlap">Maximum shared numbers between generated entries</label>
+    <select id="maxOverlap" class="select"><option value="3">3 numbers</option><option value="4" selected>4 numbers</option><option value="5">5 numbers</option><option value="6">6 numbers</option><option value="7">7 numbers</option></select>
+    <label class="fieldlabel" for="maxConsecutive">Maximum consecutive run length</label>
+    <select id="maxConsecutive" class="select"><option value="2">2 consecutive</option><option value="3">3 consecutive</option><option value="7">No restriction</option></select>
+    <label class="checkline"><input type="checkbox" id="useHistory" checked> Use imported history for descriptive frequency display (not prediction)</label>
+    <button id="generateBatch" class="btn primary full">Generate 20 combinations</button>
     <div id="batchOutput" class="statsout">Generated combinations will appear here.</div>
     <button id="saveBatch" class="btn secondary full" disabled>Save generated combinations</button>
+    <button id="exportBatch" class="btn ghost full" disabled>Export generated combinations to CSV</button>
   </div>
   <div class="summary">
     <div class="summarytop"><b>Selection summary</b><span id="validity" class="pill">Not complete</span></div>
@@ -59,7 +65,7 @@
 <section id="stats" class="page">
   <div class="hero"><div class="eyebrow">DATA & ANALYSIS</div><h1>Historical statistics</h1><p>Import a results CSV to calculate frequencies from your own verified draw history.</p></div>
   <div class="card"><h3>Import draw history</h3><p>CSV format: one draw per row, with the main numbers in columns. Header row is optional. Only include the main numbers for the selected game.</p><input id="csvFile" type="file" accept=".csv,text/csv" class="file"><button id="analyseBtn" class="btn primary full">Analyse CSV</button><div id="statsOutput" class="statsout">No history imported yet. No historical counts are invented or assumed.</div></div>
-  <div class="card"><h3>How to interpret frequency</h3><p>Hot and cold counts describe past draws only. They do not make a number more or less likely in the next independent draw.</p></div>
+  <div class="card"><h3>How to interpret frequency</h3><p>Hot and cold counts describe past draws only. They do not make a number more or less likely in the next independent draw. Pair and triplet counts are also descriptive and can be unstable in small samples.</p><p><b>CSV guidance:</b> use one draw per row and place the drawn main numbers in the first number columns. Exclude draw dates, draw IDs, supplementary numbers and bonus fields. The app does not fetch or verify official results.</p></div>
 </section>
 <section id="saved" class="page">
   <div class="hero"><div class="eyebrow">ON THIS DEVICE</div><h1>My saved picks</h1><p>Your saved selections are stored locally in this browser.</p></div>
