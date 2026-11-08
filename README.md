@@ -12,10 +12,9 @@ A mobile-first Progressive Web App (PWA) for Australian lottery number planning.
 - Super 66: six digits, exact order, including leading zeroes
 
 ## Install on Android
-1. Host these files on an HTTPS static web host (for example, your own web hosting).
-2. Open the hosted `index.html` in Chrome on your Android phone.
-3. Open Chrome menu (⋮) and choose **Install app** or **Add to Home screen**.
-4. Launch Lottery Companion AU from your home screen.
+1. Open the hosted `index.html` in Chrome on your Android phone.
+2. Open Chrome menu (⋮) and choose **Install app** or **Add to Home screen**.
+3. Launch Lottery Companion AU from your home screen.
 
 For local testing on a computer, serve this folder over localhost. PWA installation/service workers generally require HTTPS or localhost; opening the HTML file directly does not enable full PWA installation.
 
