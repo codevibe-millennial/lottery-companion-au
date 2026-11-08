@@ -33,6 +33,21 @@
     <div id="super66Wrap" class="hidden"><label class="fieldlabel" for="super66">Six-digit Super 66 number</label><input id="super66" class="select digits" inputmode="numeric" maxlength="6" placeholder="000000"><small>Leading zeroes are valid. Order matters.</small><button id="random66" class="btn secondary full">Generate random six digits</button></div>
   </div>
   <div id="raffleWrap" class="hidden raffle"><h3>Lucky Lotteries ticket tracker</h3><p>Lucky Lotteries is raffle-style. This planner cannot choose or issue an official ticket number.</p><label class="fieldlabel" for="raffleType">Raffle</label><select id="raffleType" class="select"><option>Lucky Super Jackpot</option><option>Lucky Mega Jackpot</option></select><label class="fieldlabel" for="raffleTicket">Your ticket number (optional)</label><input id="raffleTicket" class="select" placeholder="Enter the number printed on your ticket"></div>
+  <div id="generatorPanel" class="card">
+    <h3>Advanced combination generator</h3>
+    <p>Generate multiple unique combinations with optional number-spread rules. These rules change the style of picks, not the chance of winning.</p>
+    <label class="fieldlabel" for="batchCount">Number of combinations</label>
+    <select id="batchCount" class="select"><option>5</option><option>10</option><option>20</option><option>50</option></select>
+    <label class="fieldlabel" for="spreadRule">Selection style</label>
+    <select id="spreadRule" class="select">
+      <option value="balanced">Balanced odd/even and low/high</option>
+      <option value="high">Include more numbers above 31</option>
+      <option value="unrestricted">Unrestricted random</option>
+    </select>
+    <button id="generateBatch" class="btn primary full">Generate combinations</button>
+    <div id="batchOutput" class="statsout">Generated combinations will appear here.</div>
+    <button id="saveBatch" class="btn secondary full" disabled>Save generated combinations</button>
+  </div>
   <div class="summary">
     <div class="summarytop"><b>Selection summary</b><span id="validity" class="pill">Not complete</span></div>
     <div id="summaryText" class="summarytext">Choose a lottery and select your numbers.</div>
